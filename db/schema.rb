@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_27_181619) do
+ActiveRecord::Schema.define(version: 2022_06_28_111744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -632,6 +632,15 @@ ActiveRecord::Schema.define(version: 2022_06_27_181619) do
     t.index ["deleted_at"], name: "index_spree_prices_on_deleted_at"
     t.index ["variant_id", "currency"], name: "index_spree_prices_on_variant_id_and_currency"
     t.index ["variant_id"], name: "index_spree_prices_on_variant_id"
+  end
+
+  create_table "spree_product_badges", force: :cascade do |t|
+    t.bigint "spree_product_id", null: false
+    t.bigint "spree_badge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["spree_badge_id"], name: "index_spree_product_badges_on_spree_badge_id"
+    t.index ["spree_product_id"], name: "index_spree_product_badges_on_spree_product_id"
   end
 
   create_table "spree_product_option_types", force: :cascade do |t|
@@ -1464,4 +1473,6 @@ ActiveRecord::Schema.define(version: 2022_06_27_181619) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "spree_oauth_access_grants", "spree_oauth_applications", column: "application_id"
   add_foreign_key "spree_oauth_access_tokens", "spree_oauth_applications", column: "application_id"
+  add_foreign_key "spree_product_badges", "spree_badges"
+  add_foreign_key "spree_product_badges", "spree_products"
 end
