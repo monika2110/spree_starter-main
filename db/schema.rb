@@ -62,12 +62,6 @@ ActiveRecord::Schema.define(version: 2022_06_27_181619) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "badges", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.bigint "sluggable_id", null: false
@@ -149,6 +143,12 @@ ActiveRecord::Schema.define(version: 2022_06_27_181619) do
     t.index ["position"], name: "index_spree_assets_on_position"
     t.index ["viewable_id"], name: "index_assets_on_viewable_id"
     t.index ["viewable_type", "type"], name: "index_assets_on_viewable_type_and_type"
+  end
+
+  create_table "spree_badges", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "spree_calculators", force: :cascade do |t|
