@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Spree routes
   mount Spree::Core::Engine, at: '/'
-  Spree::Core::Engine.routes.prepend do
+  Spree::Core::Engine.routes.draw do
     namespace :admin, path: Spree.admin_path do
       resources :badges
       resources :product_badges
