@@ -1,0 +1,13 @@
+<% content_for :page_title do %>
+  <%= link_to Spree.t(:badges), spree.admin_badges_url %> /
+  <%= @badge.name.capitalize %>
+<% end %>
+
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @badge } %>
+
+<%= form_for [:admin, @badge] do |f| %>
+  <fieldset>
+    <%= render partial: 'form', locals: { f: f } %>
+    <%= render partial: 'spree/admin/shared/edit_resource_links' %>
+  </fieldset>
+<% end %>
