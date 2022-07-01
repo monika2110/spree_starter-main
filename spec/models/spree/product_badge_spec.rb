@@ -4,7 +4,6 @@ RSpec.describe Spree::ProductBadge, type: :model do
   let(:product_badge) { FactoryBot.create(:product_badge) }
   let(:product_badge2) { FactoryBot.create(:product_badge) }
 
-
   it 'has a valid factory' do
     expect(product_badge).to be_valid
   end
@@ -25,6 +24,4 @@ RSpec.describe Spree::ProductBadge, type: :model do
 
     expect(product_badge2).not_to be_valid
   end
-
-
 end

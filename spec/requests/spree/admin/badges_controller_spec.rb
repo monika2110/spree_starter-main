@@ -18,13 +18,13 @@ RSpec.describe Spree::Admin::BadgesController, type: :controller do
       'name' => '%',
     }
   end
+
   describe 'GET /index' do
     it 'renders a successful response' do
       get :index
       expect(response).to be_successful
     end
   end
-
 
   describe 'GET /new' do
     it 'renders a successful response' do
@@ -36,7 +36,7 @@ RSpec.describe Spree::Admin::BadgesController, type: :controller do
   describe 'GET /edit' do
     it 'render a successful response' do
       badge = Spree::Badge.create(valid_attributes)
-      get :edit, params: {id: badge.id}
+      get :edit, params: { id: badge.id }
       expect(response).to be_successful
     end
   end
@@ -92,14 +92,14 @@ RSpec.describe Spree::Admin::BadgesController, type: :controller do
     it 'destroys the requested badge' do
       badge = Spree::Badge.create(valid_attributes)
       expect do
-        delete :destroy, params: { id: badge.id}
+        delete :destroy, params: { id: badge.id }
       end.to change(Spree::Badge, :count).by(-1)
     end
 
     it 'redirects to index' do
-        badge = Spree::Badge.create(valid_attributes)
-        delete :destroy, params: { id: badge.id}
-        expect(response).to redirect_to(admin_badges_url)
+      badge = Spree::Badge.create(valid_attributes)
+      delete :destroy, params: { id: badge.id }
+      expect(response).to redirect_to(admin_badges_url)
     end
   end
 end
