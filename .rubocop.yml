@@ -20,7 +20,7 @@ AllCops:
 Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 
-AlignParameters:
+Layout/ParameterAlignment:
   Enabled: false
 
 ClassLength:
@@ -93,10 +93,7 @@ Style/PercentLiteralDelimiters:
 Naming/VariableNumber:
   Enabled: false
 
-Performance/RegexpMatch:
-  Enabled: false
-
-Style/UnneededPercentQ:
+Style/RedundantPercentQ:
   Enabled: false
 
 Lint/ParenthesesAsGroupedExpression:
@@ -114,9 +111,6 @@ Style/ClassAndModuleChildren:
 Style/AndOr:
   Exclude:
     - '**/*controller.rb'
-
-Rails:
-  Enabled: true
 
 Bundler/OrderedGems:
   Enabled: false
